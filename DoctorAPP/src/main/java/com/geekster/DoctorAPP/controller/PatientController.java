@@ -52,11 +52,7 @@ public class PatientController {
 
     }
 
-    @GetMapping("patients")
-    List<Patient> getAllPatients()
-    {
-        return patientService.getAllPatients();
-    }
+
 
     @PostMapping("appointment/schedule")
     public String  scheduleAppointment(@RequestBody Appointment appointment,String email, String token)

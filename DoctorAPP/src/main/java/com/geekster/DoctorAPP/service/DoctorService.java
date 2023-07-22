@@ -2,6 +2,7 @@ package com.geekster.DoctorAPP.service;
 
 
 import com.geekster.DoctorAPP.model.Doctor;
+import com.geekster.DoctorAPP.model.enums.Specialization;
 import com.geekster.DoctorAPP.repository.IDoctorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,9 @@ public class DoctorService {
 
     public List<Doctor> getAllDoctors() {
         return doctorRepo.findAll();
+    }
+
+    public List<Doctor> getAllDoctorsSameType(Specialization specialization) {
+        return doctorRepo.findBySpecialization(specialization);
     }
 }

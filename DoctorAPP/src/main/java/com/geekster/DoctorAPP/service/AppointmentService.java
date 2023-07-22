@@ -38,4 +38,16 @@ public class AppointmentService {
 
         appointmentRepo.delete(appointment);
     }
+
+    public String rescheduleAppointment(Long appointmentId,LocalDateTime reschedule) {
+        Appointment appointment = appointmentRepo.findById(appointmentId).orElse(null);
+        if(appointment==null)
+        {
+            return "Invalid Appointment";
+        }
+        appointment.setAppointmentScheduleTime(reschedule);
+        appointmentRepo.save(appointment);
+        return "Appointment rescheduled";
+
+    }
 }

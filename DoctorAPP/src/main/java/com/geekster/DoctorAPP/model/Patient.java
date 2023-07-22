@@ -32,7 +32,7 @@ public class Patient {
     private Integer patientAge;
     private String patientAddress;
     @Enumerated(EnumType.STRING)
-    private Gender gender;
+    private Gender patientGender;
 
     @OneToOne(mappedBy = "patient")
     Appointment appointment;

@@ -3,6 +3,8 @@ package com.geekster.DoctorAPP.service.utility.emailUtility;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.Authenticator;
+import javax.mail.PasswordAuthentication;
 import java.util.Properties;
 
 public class EmailHandler {

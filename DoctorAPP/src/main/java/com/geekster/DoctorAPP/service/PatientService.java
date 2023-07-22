@@ -6,6 +6,7 @@ import com.geekster.DoctorAPP.model.AuthenticationToken;
 import com.geekster.DoctorAPP.model.Patient;
 import com.geekster.DoctorAPP.model.dto.SignInInput;
 import com.geekster.DoctorAPP.model.dto.SignUpOutput;
+import com.geekster.DoctorAPP.model.enums.Gender;
 import com.geekster.DoctorAPP.repository.IAuthTokenRepo;
 import com.geekster.DoctorAPP.repository.IDoctorRepo;
 import com.geekster.DoctorAPP.repository.IPatientRepo;
@@ -116,8 +117,8 @@ public class PatientService {
                 AuthenticationToken authToken  = new AuthenticationToken(existingPatient);
                 authTokenRepo.save(authToken);
 
-                EmailHandler.sendEmail(signInEmail,"email testing",authToken.getTokenValue());
-                return "Token sent to your email";
+                //EmailHandler.sendEmail(signInEmail,"email testing",authToken.getTokenValue());
+                return "Session Started "+authToken.getTokenValue();
             }
             else {
                 signInStatusMessage = "Invalid credentials!!!";
@@ -171,5 +172,9 @@ public class PatientService {
         Patient patient = patientRepo.findFirstByPatientEmail(email);
         authTokenRepo.delete(authTokenRepo.findFirstByPatient(patient));
         return "Patient Signed out successfully";
+    }
+
+    public List<Patient> findByPatientGender(Gender patientGender) {
+        return patientRepo.findByPatientGender(patientGender);
     }
 }
