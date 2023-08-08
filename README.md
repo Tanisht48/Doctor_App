@@ -30,7 +30,6 @@ This project is a Doctor Appointment Booking Service API that allows patients to
 ## Dependencies
 The following dependencies are required to run the project:
 
-* Spring Boot Dev Tools
 * Spring Web
 * Spring Data JPA
 * MySQL Driver
